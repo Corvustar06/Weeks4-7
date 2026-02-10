@@ -1,7 +1,10 @@
 using UnityEngine;
 
 public class BulletMove : MonoBehaviour
+
 {
+    public float speed = 2f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

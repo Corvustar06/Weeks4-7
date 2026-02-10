@@ -16,7 +16,7 @@ public class Bulletshoot : MonoBehaviour
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Instantiate(bulletPrefab);
+            Instantiate(bulletPrefab, transform.position, transform.rotation);
         }
     }
 }
