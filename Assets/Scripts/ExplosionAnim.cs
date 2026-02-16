@@ -6,12 +6,11 @@ public class ExplosionAnim : MonoBehaviour
 {
     
     public List <Sprite> explosions;
-    public bool exploding = false;
+    public bool exploding = true;
     public int frameNum = 0;
     public float timer=0.1f;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -51,9 +50,4 @@ public class ExplosionAnim : MonoBehaviour
         sR.sprite = explosions[frameNum];
         frameNum++;
 	}
-
-    public void startExplosion()
-    {
-        exploding = true;
-    }
 }
