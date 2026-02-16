@@ -304,10 +304,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1303850773}
+      - m_Target: {fileID: 2094607305}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1096926895}
+        m_TargetAssemblyTypeName: Countdown, Assembly-CSharp
+        m_MethodName: startCount
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -318,20 +330,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1303850777}
         m_TargetAssemblyTypeName: ExplosionAnim, Assembly-CSharp
-        m_MethodName: startExplosion
+        m_MethodName: explode
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 2094607305}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2290,7 +2290,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 545987140}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1096926895}
+        m_TargetAssemblyTypeName: Countdown, Assembly-CSharp
+        m_MethodName: cancelCount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &545987140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4046,6 +4058,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084910246}
   m_CullTransparentMesh: 1
+--- !u!1 &1096926894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096926896}
+  - component: {fileID: 1096926895}
+  m_Layer: 0
+  m_Name: Countdown Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1096926895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096926894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc175b91330a3841976cfdde76ca6b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countDown: {fileID: 2094607307}
+  explosions: {fileID: 1303850773}
+  countingDown: 0
+  timerMax: 10
+  sliderValue: 0
+--- !u!4 &1096926896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096926894}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0666, y: 0.5662, z: 0}
+  m_LocalScale: {x: 4.264058, y: 8.12746, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1212764505
 GameObject:
   m_ObjectHideFlags: 0
@@ -4332,7 +4393,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 1208040086343421634, guid: 94039e595b1e4324886325e817c7e850, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4382,7 +4443,21 @@ MonoBehaviour:
   - {fileID: -7937749962922180185, guid: 327211c6256879442aeb3e0d8b431b7b, type: 3}
   - {fileID: 160114767289012160, guid: 736947a8976b8564290f7ff80502e940, type: 3}
   - {fileID: 8798082667579980142, guid: 2797f8441ce37684b99b6da363951042, type: 3}
-  exploding: 0
+  buttons:
+  - {fileID: 2115681174}
+  - {fileID: 205143662}
+  - {fileID: 1362440942}
+  - {fileID: 1710818298}
+  - {fileID: 545987139}
+  - {fileID: 10199753}
+  - {fileID: 518767287}
+  - {fileID: 1450000835}
+  - {fileID: 142682780}
+  - {fileID: 909042311}
+  - {fileID: 999356489}
+  brightness: {fileID: 4088479}
+  ExploCounter: {fileID: 2094607307}
+  exploding: 1
   frameNum: 0
   timer: 0.1
 --- !u!1 &1362440940
@@ -5347,9 +5422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-'
+  m_text: STOP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5358,8 +5431,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4279571900
+  m_fontColor: {r: 0.735849, g: 0.08191521, b: 0.08191521, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5376,13 +5449,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 8.6
+  m_fontSizeBase: 8.6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -6726,4 +6799,5 @@ SceneRoots:
   - {fileID: 901158337}
   - {fileID: 676123911}
   - {fileID: 1387767321}
+  - {fileID: 1096926896}
   - {fileID: 1303850776}
