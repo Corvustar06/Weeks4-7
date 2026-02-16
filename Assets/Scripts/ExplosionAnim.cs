@@ -27,10 +27,13 @@ public class ExplosionAnim : MonoBehaviour
                 timer -= Time.deltaTime;
                 for (int i = 0; i<buttons.Count; i++)
             {
-                buttons[i].gameObject.SetActive(false);
+                    buttons[i].gameObject.SetActive(false);
             }
-                brightness.gameObject.SetActive(false);
-                ExploCounter.gameObject.SetActive(false);
+                if (brightness != null && ExploCounter != null)
+            {
+                    brightness.gameObject.SetActive(false);
+                    ExploCounter.gameObject.SetActive(false);
+            }
             }
 
             if (frameNum >= explosions.Count)
@@ -45,7 +48,10 @@ public class ExplosionAnim : MonoBehaviour
                 buttons[i].gameObject.SetActive(true);
 			}
 
-			    brightness.gameObject.SetActive(true);
+			if(brightness != null)
+			{
+				brightness.gameObject.SetActive(true);
+			}    
 
 		}
 
