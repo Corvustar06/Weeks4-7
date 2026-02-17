@@ -8,7 +8,7 @@ public class MiniSplosionScript : MonoBehaviour
 	
 	public GameObject miniSplode;
 	public bool sploding = false;
-	public float timer = 0.001f;
+	public float timer = 0.05f;
 	public float splosionNum = 0.0f;
 	public float splosionsAtOnce;
 
@@ -26,11 +26,14 @@ public class MiniSplosionScript : MonoBehaviour
 			timer -= Time.deltaTime;
 			if (timer < 0)
 			{
-				timer = 0.001f;
+				timer = 0.05f;
 				if (splosionNum > 0)
 				{
 					makeSplosion();
 					splosionNum-=1;
+				}
+				else{
+					sploding = false;
 				}
 			}
 		}
